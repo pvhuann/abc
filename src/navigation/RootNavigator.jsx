@@ -4,7 +4,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import VerificationScreen from '../screens/VerificationScreen';
-import HomeScreen from '../screens/HomeScreen';
+import MessagesScreen from '../screens/MessagesScreen';
+
+import HomeNavigator from './HomeNavigator';
+import Header from '../components/common/Header';
 
 const Stack = createStackNavigator();
 
@@ -17,7 +20,11 @@ const RootNavigator = () => {
 			<Stack.Screen name="LoginScreen" component={LoginScreen} />
 			<Stack.Screen name="SignUpScreen" component={SignUpScreen} />
 			<Stack.Screen name="VerificationScreen" component={VerificationScreen} />
-			<Stack.Screen name="HomeScreen" component={HomeScreen} />
+			<Stack.Screen name="HomeScreen" component={HomeNavigator} options={{
+				headerShown: true,
+				header: () => <Header title="Chat" />
+			}} />
+			<Stack.Screen name="MessagesScreen" component={MessagesScreen} />
 		</Stack.Navigator>
 	)
 }
