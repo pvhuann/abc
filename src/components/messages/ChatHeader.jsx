@@ -7,7 +7,7 @@ import { theme } from '../../theme';
 const ChatHeader = ({ username, bio, picture, onlineStatus, onPress }) => {
 	return (
 		<View style={styles.container}>
-			<TouchableOpacity style={styles.backButton}>
+			<TouchableOpacity style={styles.backButton} onPress={onPress}>
 				<Icon name="angle-left" size={30} color={theme.colors.white} />
 			</TouchableOpacity>
 			<View style={styles.profileOptions}>

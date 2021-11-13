@@ -14,7 +14,7 @@ import EmojiPicker from "./emojis/EmojiPicker";
 
 import { theme } from "../../theme";
 
-const ChatInput = ({ reply }) => {
+const ChatInput = ({ reply, closeReply, isLeft, username }) => {
 	const [message, setMessage] = useState("");
 	const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 	const [heightValue, setHeightValue] = useState(new Animated.Value(70));
@@ -29,7 +29,7 @@ const ChatInput = ({ reply }) => {
 
 	const showEmojis = () => {
 		Animated.timing(heightValue, {
-			toValue: showEmojiPicker ? (reply ? 630 : 400) : reply ? 130 : 70,
+			toValue: showEmojiPicker ? 450 : reply ? 130 : 70,
 			duration: 50,
 			useNativeDriver: false,
 		}).start();
@@ -39,7 +39,7 @@ const ChatInput = ({ reply }) => {
 		Animated.timing(heightValue, {
 			toValue: reply
 				? showEmojiPicker
-					? 630
+					? 450
 					: 130
 				: showEmojiPicker
 				? 400
@@ -53,6 +53,12 @@ const ChatInput = ({ reply }) => {
 		<Animated.View style={[{ height: heightValue }, styles.container]}>
 			{reply ? (
 				<View style={styles.replyContainer}>
+					<TouchableOpacity onPress={closeReply} style={styles.closeReply}>
+						<Icon name="close" color="#000" size={20} />
+					</TouchableOpacity>
+					<Text style={styles.title}>
+						Response to {isLeft ? username : "Me"}
+					</Text>
 					<Text style={styles.reply}>{reply}</Text>
 				</View>
 			) : null}
@@ -111,21 +117,22 @@ const styles = StyleSheet.create({
 		backgroundColor: theme.colors.white,
 	},
 	replyContainer: {
-		paddingHorizontal: 30,
+		paddingHorizontal: 10,
 		marginHorizontal: 10,
-		marginRight: 80,
 		justifyContent: "center",
 		alignItems: "flex-start",
-		paddingVertical: 30,
-		height: 30,
-		borderColor: theme.colors.primary,
-		borderWidth: 3,
-		borderRadius: 20,
-		backgroundColor: theme.colors.primary
+	},
+	title: {
+		marginTop: 5,
+		fontWeight: "bold",
+	},
+	closeReply: {
+		position: 'absolute',
+		right: 10,
+		top: 5
 	},
 	reply: {
-		color: theme.colors.white,
-		fontWeight: 'bold'
+		marginTop: 5,
 	},
 	innerContainer: {
 		paddingHorizontal: 10,

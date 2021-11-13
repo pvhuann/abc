@@ -1,7 +1,16 @@
 import React, { useState, useRef } from "react";
 import { View, Text, StyleSheet, Alert } from "react-native";
-import Animated, { withSpring, useAnimatedGestureHandler, useSharedValue, useAnimatedStyle } from 'react-native-reanimated';
-import { FlingGestureHandler, Directions, State } from "react-native-gesture-handler";
+import {
+	FlingGestureHandler,
+	Directions,
+	State,
+} from "react-native-gesture-handler";
+import Animated, {
+	withSpring,
+	useAnimatedStyle,
+	useAnimatedGestureHandler,
+	useSharedValue
+} from "react-native-reanimated";
 
 import { theme } from "../../theme";
 
@@ -45,9 +54,9 @@ const Message = ({ time, isLeft, message, onSwipe }) => {
 
 	const uas = useAnimatedStyle(() => {
 		return {
-			transform: [{translateX: x.value}]
+			transform: [{ translateX: x.value }]
 		}
-	})
+	});
 
 	return (
 		<FlingGestureHandler
@@ -55,7 +64,7 @@ const Message = ({ time, isLeft, message, onSwipe }) => {
 			onGestureEvent={eventHandler}
 			onHandlerStateChange={({ nativeEvent }) => {
 				if (nativeEvent.state === State.ACTIVE) {
-					onSwipe(message);
+					onSwipe(message, isLeft);
 				}
 			}}
 		>

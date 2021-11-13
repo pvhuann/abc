@@ -8,10 +8,15 @@ import MessagesList from "../components/messages/MessagesList";
 const MessagesScreen = ({ navigation, route }) => {
 	const { username, bio, picture, isBlocked, isMuted } = route.params;
 	const [reply, setReply] = useState("");
-	const [emojis, setEmojis] = useState('');
+	const [isLeft, setIsLeft] = useState();
 
-	const swipeToReply = (message) => {
-		setReply(message.length > 50 ? message.slice(0, 50) + "..." : message);
+	const swipeToReply = (message, isLeft) => {
+		setReply(message.length > 50 ? message.slice(0, 50) + '...' : message);
+		setIsLeft(isLeft);
+	};
+
+	const closeReply = () => {
+		setReply("");
 	};
 
 	return (
@@ -23,7 +28,7 @@ const MessagesScreen = ({ navigation, route }) => {
 				onlineStatus={'Online'}
 			/>
 			<MessagesList onSwipeToReply={swipeToReply} />
-			<ChatInput reply={reply} />
+			<ChatInput reply={reply} isLeft={isLeft} closeReply={closeReply} username={username} />
 		</View>
 	);
 };
