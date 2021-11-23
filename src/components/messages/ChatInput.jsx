@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import {
 	View,
 	Text,
@@ -6,54 +6,58 @@ import {
 	TextInput,
 	Platform,
 	TouchableOpacity,
-	Animated,
 } from "react-native";
+
+import Animated, {
+	useSharedValue,
+	withSpring,
+	withTiming,
+	useAnimatedStyle,
+} from "react-native-reanimated";
 
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import EmojiPicker from "./emojis/EmojiPicker";
+
+import { useKeyboard } from "@react-native-community/hooks";
 
 import { theme } from "../../theme";
 
 const ChatInput = ({ reply, closeReply, isLeft, username }) => {
 	const [message, setMessage] = useState("");
 	const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-	const [heightValue, setHeightValue] = useState(new Animated.Value(70));
+	const height = useSharedValue(70);
 
 	useEffect(() => {
-		showEmojis();
+		if (showEmojiPicker) {
+			height.value = withTiming(400);
+		} else {
+			height.value = reply ? withSpring(130) : withSpring(70);
+		}
 	}, [showEmojiPicker]);
 
 	useEffect(() => {
-		showReply();
+		if (reply) {
+			height.value = showEmojiPicker ? withTiming(450) : withTiming(130);
+		} else {
+			height.value = showEmojiPicker ? withSpring(400) : withSpring(70);
+		}
 	}, [reply]);
 
-	const showEmojis = () => {
-		Animated.timing(heightValue, {
-			toValue: showEmojiPicker ? 450 : reply ? 130 : 70,
-			duration: 50,
-			useNativeDriver: false,
-		}).start();
-	};
+	const heightAnimatedStyle = useAnimatedStyle(() => {
+		return {
+			height: height.value
+		}
+	})
 
-	const showReply = () => {
-		Animated.timing(heightValue, {
-			toValue: reply
-				? showEmojiPicker
-					? 450
-					: 130
-				: showEmojiPicker
-				? 400
-				: 70,
-			duration: 50,
-			useNativeDriver: false,
-		}).start();
-	};
 
 	return (
-		<Animated.View style={[{ height: heightValue }, styles.container]}>
+		<Animated.View style={[styles.container, heightAnimatedStyle]}>
 			{reply ? (
 				<View style={styles.replyContainer}>
-					<TouchableOpacity onPress={closeReply} style={styles.closeReply}>
+					<TouchableOpacity
+						onPress={closeReply}
+						style={styles.closeReply}
+					>
 						<Icon name="close" color="#000" size={20} />
 					</TouchableOpacity>
 					<Text style={styles.title}>
@@ -78,7 +82,7 @@ const ChatInput = ({ reply, closeReply, isLeft, username }) => {
 					</TouchableOpacity>
 					<TextInput
 						multiline
-						placeholder="Type something..."
+						placeholder={"Type something..."}
 						style={styles.input}
 						value={message}
 						onChangeText={(text) => setMessage(text)}
@@ -127,9 +131,9 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 	},
 	closeReply: {
-		position: 'absolute',
+		position: "absolute",
 		right: 10,
-		top: 5
+		top: 5,
 	},
 	reply: {
 		marginTop: 5,
@@ -169,10 +173,43 @@ const styles = StyleSheet.create({
 		borderLeftWidth: 1,
 		borderLeftColor: "#fff",
 	},
+	swipeToCancelView: {
+		flexDirection: "row",
+		alignItems: "center",
+		marginRight: 30,
+	},
+	swipeText: {
+		color: theme.colors.description,
+		fontSize: 15,
+	},
 	emoticonButton: {
 		justifyContent: "center",
 		alignItems: "center",
 		paddingLeft: 10,
+	},
+	recordingActive: {
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-between",
+		paddingLeft: 10,
+	},
+	recordingTime: {
+		color: theme.colors.description,
+		fontSize: 20,
+		marginLeft: 5,
+	},
+	microphoneAndLock: {
+		alignItems: "center",
+		justifyContent: "flex-end",
+	},
+	lockView: {
+		backgroundColor: "#eee",
+		width: 60,
+		alignItems: "center",
+		borderTopLeftRadius: 30,
+		borderTopRightRadius: 30,
+		height: 130,
+		paddingTop: 20,
 	},
 	sendButton: {
 		backgroundColor: theme.colors.primary,
@@ -184,4 +221,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default memo(ChatInput);
+export default ChatInput;
