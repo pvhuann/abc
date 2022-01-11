@@ -5,6 +5,7 @@ import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import VerificationScreen from '../screens/VerificationScreen';
 import MessagesScreen from '../screens/MessagesScreen';
+import OnCallScreen from '../screens/OnCallScreen';
 
 import HomeNavigator from './HomeNavigator';
 import Header from '../components/common/Header';
@@ -25,6 +26,7 @@ const RootNavigator = () => {
 				header: () => <Header title="Chat" />
 			}} />
 			<Stack.Screen name="MessagesScreen" component={MessagesScreen} />
+			<Stack.Screen name="OnCallScreen" component={OnCallScreen} />
 		</Stack.Navigator>
 	)
 }

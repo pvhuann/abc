@@ -14,7 +14,11 @@ export const theme = {
 		inputText: '#000',
 		messageBackground: '#1B5583',
 		danger: '#df4759',
-		light: '#ccc'
+		success: "#4b0",
+		light: '#ccc',
+		halfOpacitySecondary: 'rgba(240, 149, 17, 0.5)',
+		halfOpacityPrimary: 'rgba(0, 132, 255, 0.5)',
+		storyBorder: "#00f"
 	},
 	fontSize: {
 		title: 18,

@@ -1,10 +1,12 @@
-import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
-import Icon from '@expo/vector-icons/FontAwesome';
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import Icon from "@expo/vector-icons/FontAwesome";
 
-import { theme } from '../../theme';
+import { theme } from "../../theme";
 
 const ChatHeader = ({ username, bio, picture, onlineStatus, onPress }) => {
+	const navigation = useNavigation();
 	return (
 		<View style={styles.container}>
 			<TouchableOpacity style={styles.backButton} onPress={onPress}>
@@ -18,68 +20,82 @@ const ChatHeader = ({ username, bio, picture, onlineStatus, onPress }) => {
 						<Text style={styles.onlineStatus}>{onlineStatus}</Text>
 					</View>
 				</TouchableOpacity>
-				<View style={styles.options}> 
-					<TouchableOpacity style={{ paddingHorizontal: 5 }}>
-						<Icon name="phone" size={30} color={theme.colors.white} />
+				<View style={styles.options}>
+					<TouchableOpacity
+						onPress={() => navigation.navigate("OnCallScreen", {
+							username: username,
+							picture: picture
+						})}
+						style={{ paddingHorizontal: 5 }}
+					>
+						<Icon
+							name="phone"
+							size={30}
+							color={theme.colors.white}
+						/>
 					</TouchableOpacity>
 					<TouchableOpacity style={{ paddingHorizontal: 20 }}>
-						<Icon name="ellipsis-v" size={30} color={theme.colors.white} />
+						<Icon
+							name="ellipsis-v"
+							size={30}
+							color={theme.colors.white}
+						/>
 					</TouchableOpacity>
 				</View>
 			</View>
 		</View>
-	)
-}
+	);
+};
 
 const styles = StyleSheet.create({
 	container: {
-		flexDirection: 'row',
+		flexDirection: "row",
 		backgroundColor: theme.colors.primary,
 		paddingTop: 40,
-		paddingBottom: 10
+		paddingBottom: 10,
 	},
 	backButton: {
-		alignSelf: 'center',
-		paddingHorizontal: 10
+		alignSelf: "center",
+		paddingHorizontal: 10,
 	},
 	profileOptions: {
 		flex: 1,
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center',
-		paddingHorizontal: 10
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignItems: "center",
+		paddingHorizontal: 10,
 	},
 	profile: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		borderColor: '#fff',
-		flex: 4
+		flexDirection: "row",
+		alignItems: "center",
+		borderColor: "#fff",
+		flex: 4,
 	},
 	image: {
 		height: 65,
 		width: 65,
-		borderRadius: 32.5
+		borderRadius: 32.5,
 	},
 	usernameAndOnlineStatus: {
-		flexDirection: 'column',
-		justifyContent: 'center',
-		paddingHorizontal: 10
+		flexDirection: "column",
+		justifyContent: "center",
+		paddingHorizontal: 10,
 	},
 	username: {
 		color: theme.colors.white,
 		fontSize: 18,
-		fontWeight: 'bold'
+		fontWeight: "bold",
 	},
 	onlineStatus: {
 		color: theme.colors.white,
-		fontSize: 16
+		fontSize: 16,
 	},
 	options: {
 		flex: 1,
-		flexDirection: 'row',
-		justifyContent: 'flex-end',
-		alignItems: 'center',
-	}
-})
+		flexDirection: "row",
+		justifyContent: "flex-end",
+		alignItems: "center",
+	},
+});
 
-export default ChatHeader
+export default ChatHeader;
