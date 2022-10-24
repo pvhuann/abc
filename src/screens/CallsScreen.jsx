@@ -12,7 +12,7 @@ const CallsScreens = () => {
 				<Calls />
 			</ScrollView>
 			<TouchableOpacity style={fabStyles.style}>
-				<Icon name="phone" size={25} color={theme.colors.primary} />
+				<Icon name="phone" size={25} color={theme.colors.colorZalo} />
 			</TouchableOpacity>
 		</View>
 	)

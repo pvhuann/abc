@@ -8,10 +8,10 @@ const Conversations = ({ children }) => {
 		<ScrollView>
 			{children}
 			<ConversationItem
-				picture="https://images.pexels.com/photos/2078265/pexels-photo-2078265.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-				username="Murphy Patrick"
-				bio="my name is Mercy Patrick"
-				lastMessage="Hello there"
+				picture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppkoKsaYMuIoNLDH7O8ePOacLPG1mKXtEng&usqp=CAU"
+				username="Phat Nguyen"
+				bio="my name is Phat Nguyen"
+				lastMessage="Bye"
 				time="4:00 PM"
 				notification="3"
 				isBlocked
@@ -19,9 +19,9 @@ const Conversations = ({ children }) => {
 				hasStory
 			/>
 			<ConversationItem
-				picture="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-				username="Mark James"
-				bio="my name is Mercy Patrick"
+				picture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIdPuCovwlEDU1DMy_NbYedAXmEMaZaG0o4g&usqp=CAU"
+				username="Huan Phan"
+				bio="my name is Huan Phan"
 				lastMessage="Hello there"
 				time="4:00 PM"
 				notification="1"
@@ -30,9 +30,9 @@ const Conversations = ({ children }) => {
 				hasStory
 			/>
 			<ConversationItem
-				picture="https://images.pexels.com/photos/1239288/pexels-photo-1239288.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-				username="Nina Gomez"
-				bio="my name is Mercy Patrick"
+				picture="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIdPuCovwlEDU1DMy_NbYedAXmEMaZaG0o4g&usqp=CAU"
+				username="Huy Dinh"
+				bio="my name is Huy Dinh"
 				lastMessage="Hello there"
 				time="4:00 PM"
 				isBlocked
@@ -40,8 +40,8 @@ const Conversations = ({ children }) => {
 			/>
 			<ConversationItem
 				picture="https://images.pexels.com/photos/5486199/pexels-photo-5486199.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-				username="Jack Randolph"
-				bio="my name is Mercy Patrick"
+				username="Hung Nguyen"
+				bio="my name is Hung Nguyen"
 				lastMessage="Hello there"
 				time="4:00 PM"
 				isBlocked
@@ -49,8 +49,8 @@ const Conversations = ({ children }) => {
 			/>
 			<ConversationItem
 				picture="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-				username="Stephany Garcia"
-				bio="my name is Mercy Patrick"
+				username="Son Vo"
+				bio="my name is Son Vo"
 				lastMessage="Hello there"
 				time="4:00 PM"
 				notification="5"

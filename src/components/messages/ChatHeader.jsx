@@ -50,7 +50,7 @@ const ChatHeader = ({ username, bio, picture, onlineStatus, onPress }) => {
 const styles = StyleSheet.create({
 	container: {
 		flexDirection: "row",
-		backgroundColor: theme.colors.primary,
+		backgroundColor: theme.colors.colorZalo,
 		paddingTop: 40,
 		paddingBottom: 10,
 	},

@@ -91,14 +91,14 @@ const ChatInput = ({ reply, closeReply, isLeft, username }) => {
 						<Icon
 							name="paperclip"
 							size={23}
-							color={theme.colors.description}
+							color={theme.colors.colorZalo}
 						/>
 					</TouchableOpacity>
 					<TouchableOpacity style={styles.rightIconButtonStyle}>
 						<Icon
 							name="camera"
 							size={23}
-							color={theme.colors.description}
+							color={theme.colors.colorZalo}
 						/>
 					</TouchableOpacity>
 				</View>
@@ -107,6 +107,7 @@ const ChatInput = ({ reply, closeReply, isLeft, username }) => {
 						name={message ? "send" : "microphone"}
 						size={23}
 						color={theme.colors.white}
+						
 					/>
 				</TouchableOpacity>
 			</View>

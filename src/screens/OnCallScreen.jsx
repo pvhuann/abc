@@ -10,7 +10,7 @@ const OnCallScreen = ({ navigation, route }) => {
 	const [isMuted, setIsMuted] = useState(false);
 
 	return (
-		<View style={{ backgroundColor: theme.colors.primary, flex: 1 }}>
+		<View style={{ backgroundColor: theme.colors.colorZalo, flex: 1 }}>
 			<View style={styles.profileContainer}>
 				<View style={styles.usernameAndTime}>
 					<Text style={styles.username}>{username}</Text>

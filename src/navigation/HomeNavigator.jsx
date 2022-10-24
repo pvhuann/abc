@@ -109,7 +109,7 @@ const MyTabBar = ({ state, descriptors, navigation, position }) => {
               alignItems: "center",
               justifyContent: "center",
               paddingBottom: 5,
-              height: 40,
+              height: 60,
             }}
           >
             {route.name === "Camera" ? (
@@ -137,7 +137,7 @@ const HomeNavigator = () => {
       initialRouteName="Conversations"
       tabBar={(props) => <MyTabBar {...props} />}
       style={{
-        backgroundColor: theme.colors.primary,
+        backgroundColor: theme.colors.colorZalo,
       }}
     >
       <Tab.Screen name="Camera" component={CameraScreen} />
@@ -145,11 +145,11 @@ const HomeNavigator = () => {
         name="Conversations"
         component={ConversationsScreen}
         options={{
-          tabBarLabel: "Disc.",
+          tabBarLabel: "Messengers",
         }}
       />
       <Tab.Screen name="Stories" component={StoriesScreen} />
-      <Tab.Screen name="Calls" component={CallsScreen} />
+      <Tab.Screen name="Called" component={CallsScreen} />
     </Tab.Navigator>
   );
 };

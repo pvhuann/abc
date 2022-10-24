@@ -1,5 +1,6 @@
 export const theme = {
 	colors: {
+		colorZalo:'#0573ff',
 		primary: '#003153',
 		white: '#fff',
 		black: '#000',
@@ -12,7 +13,7 @@ export const theme = {
 		description: '#9f9f9f',
 		inputBackground: '#f0f0f0',
 		inputText: '#000',
-		messageBackground: '#1B5583',
+		messageBackground:'#0573ff' ,
 		danger: '#df4759',
 		success: "#4b0",
 		light: '#ccc',

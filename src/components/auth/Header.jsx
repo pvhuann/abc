@@ -17,7 +17,7 @@ const Header = ({ icon , title }) => {
 const styles = StyleSheet.create({
 	container: {
 		paddingVertical: 50,
-		backgroundColor: theme.colors.primary,
+		backgroundColor: theme.colors.colorZalo,
 		alignContent: 'center',
 		alignItems: 'center'
 	},

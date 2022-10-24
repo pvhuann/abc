@@ -5,7 +5,7 @@ export const authStyles = StyleSheet.create({
 	container: {
 		flex: 1,
 		height: '100%',
-		backgroundColor: theme.colors.primary
+		backgroundColor: theme.colors.colorZalo
 	},
 	form: {
 		flex: 2

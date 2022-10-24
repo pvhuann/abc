@@ -10,7 +10,7 @@ const Header = ({ title }) => {
 				<Text style={styles.headerTitle}>{title}</Text>
 				<TouchableOpacity onPress={() => {}} style={styles.imageContainer}>
 					<Image style={styles.image} source={{
-						uri: 'https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+						uri: ''
 					}} />
 				</TouchableOpacity>
 			</View>
@@ -20,9 +20,11 @@ const Header = ({ title }) => {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: theme.colors.primary,
-		paddingTop: 30,
-		paddingBottom: 10
+		maxHeight:0,
+		maxWidth:0,
+		// backgroundColor: theme.colors.colorZalo,
+		// paddingTop: 30,
+		// paddingBottom: 10
 	},
 	headerContainer: {
 		flexDirection: 'row',

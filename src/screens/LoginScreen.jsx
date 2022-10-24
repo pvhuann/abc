@@ -7,13 +7,15 @@ import { theme } from '../theme';
 import Header from '../components/auth/Header';
 import AppPhoneInput from '../components/auth/AppPhoneInput';
 import AppButton from '../components/auth/AppButton';
+import AppPassword from '../components/auth/AppPassword';
 
 const LoginScreen = ({ navigation }) => {
 	return (
 		<View style={authStyles.container}>
 			<View style={authStyles.form}>
-				<Header title="Login" icon="user" />
+				<Header title="Sign in" icon="user" />
 				<AppPhoneInput />
+				<AppPassword placeholder="Password"/>
 				<TouchableOpacity onPress={() => navigation.navigate("SignUpScreen")}>
 					<Text style={authStyles.signUp}>
 						Don't have an account? Sign up
@@ -24,7 +26,7 @@ const LoginScreen = ({ navigation }) => {
 				<AppButton 
 					onPress={() => navigation.navigate("VerificationScreen")} 
 					color={theme.colors.primary} 
-					title="Log in" 
+					title="Sign in" 
 				/>
 			</View>
 		</View>

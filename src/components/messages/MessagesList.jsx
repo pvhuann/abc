@@ -10,37 +10,37 @@ const MessagesList = ({ onSwipeToReply }) => {
 		{
 			user: 0,
 			time: "12:00",
-			content: "Hey",
+			content: "Hey u",
 		},
 		{
 			user: 1,
 			time: "12:05",
-			content: "What's up",
+			content: "sao v bro",
 		},
 		{
 			user: 1,
 			time: "12:07",
-			content: "How is it going?",
+			content: "nay đi cf k?",
 		},
 		{
 			user: 0,
 			time: "12:09",
-			content: "things are going great",
+			content: "ok, giờ luôn k",
 		},
 		{
 			user: 0,
 			time: "12:00",
-			content: "Good :)",
+			content: "ok bro",
 		},
 		{
 			user: 1,
 			time: "12:05",
-			content: "Should we hang out tomorrow? I was thinking of going somewhere which has drinks",
+			content: "quán cũ, 20p nữa nhá",
 		},
 		{
 			user: 0,
 			time: "12:07",
-			content: "Sure",
+			content: "okok",
 		},
 		{
 			user: 1,
